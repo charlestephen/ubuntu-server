@@ -79,7 +79,7 @@ docker run -d --name jackett --restart=always -v /${CACHE_MOUNTPOINT}/jackett:/c
 #LetsEncrypt DNS Certificate Provider
 docker run -it --name certbot -v /${CACHE_MOUNTPOINT}/letsyencrypt:/etc/letsencrypt -v /var/lib/letsencrypt:/var/lib/letsencrypt -v /${CACHE_MOUNTPOINT}/letsencrypt/api:/secrets certbot/dns-google certonly --dns-google --dns-google-credentials /secrets/google.json --dns-google-propagation-seconds 120 --server https://acme-v02.api.letsencrypt.org/directory -d ${DOMAIN}
 
-#MongoDB Database Enginer (for Unifi Controller)
+#MongoDB Database Engine (for Unifi Controller)
 docker run -d --name=mongoDB --restart=always --network=host -v /etc/localtime:/etc/localtime:ro -e ${LOCAL_TIMEZONE_CODE} -v /${CACHE_MOUNTPOINT}/mongoDB/db:/data/db -v /${CACHE_MOUNTPOINT}/mongoDB/configdb:/data/configdb -v /${CACHE_MOUNTPOINT}/mongoDB/mongo:/etc/mongo mongo:latest
 
 #NZBGet Newsgroup Downloader
