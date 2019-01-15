@@ -1,0 +1,69 @@
+{
+	"bridge": {
+		"name": "Homebridge",
+#		"username": "${HOMEBRIDGE_MAC}",
+		"port": 51826,
+		"pin": "${HOMEBRIDGE_PIN}",
+		"manufacturer": "Brooklyn Helpdesk",
+		"model": "Homebridge",
+#		"serialNumber": "${SERIAL}"
+	},
+
+	"description": "This is an example configuration file. You can use this as a template for creating your own configuration file containing devices you actually own.",
+
+	"accessories": [{
+			"accessory": "${XIOAMI_DEVICE}",
+			"name": "${XIOAMI_DEVICE_NAME}",
+			"ip": "${XIAOMI_DEVICE_STATIC_IP}",
+			"token": "${XIAOMI_DEVICE_TOKEN}",
+			"showTemperature": true,
+			"showHumidity": true,
+			"showAirQuality": true,
+			"showLED": false,
+			"showBuzzer": false
+		},
+		{
+			"accessory": "${XIOAMI_DEVICE}",
+			"name": "${XIOAMI_DEVICE_NAME}",
+			"ip": "${XIAOMI_DEVICE_STATIC_IP}",
+			"token": "${XIAOMI_DEVICE_TOKEN}",
+			"showTemperature": true,
+			"showHumidity": true,
+			"showAirQuality": true,
+			"showLED": false,
+			"showBuzzer": false
+		},
+		{
+			"accessory": "UniFi Occupancy Sensor",
+			"name": "Network Sensor",
+			"unifi": {
+				"controller": "${UNIFI_NETWORK_ADDRESS:8443}",
+				"username": "${UNIFI_NETWORK_USER}",
+				"password": "${UNIFI_NETWORK_USER_PASSWORD}",
+				"site": "default",
+				"secure": "true"
+			},
+			"watch": ["${MAC_IDS_TO_WATCH_FOR}"],
+			"watchGuests": true,
+			"mode": "any"
+		}
+	],
+
+	"platforms": [{
+			"platform": "Frigidaire",
+			"name": "Air Conditioner",
+			"username": "${FRIGIDAIRE_APP_USERNAME}",
+			"password": "${FRIGIDAIRE_APP_PASSWORD}"
+		},
+		{
+			"platform": "Nest",
+			"token": "${NEST_DEVELOPER_API_TOKEN}",
+			"clientId": "${NEST_DEVELOPER_API_CLIENT_ID}",
+			"clientSecret": "{NEST_DEVELOPER_API_CLIENT_SECRET}",
+			"code": "${NEST_DEVELOPER_APIT_CONFIRM_CODE}",
+
+			"username": "${NEST_LOGIN_USERNAME}",
+			"password": "${NEST_LOGIN_PASSWORD}"
+		}
+	]
+}
