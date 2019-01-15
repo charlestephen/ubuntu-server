@@ -25,6 +25,7 @@ sudo ln -s /${CACHE_MOUNTPOINT}/docker /var/lib/
     create mask = 0777
 
 sudo chown -R ${DOCKER_USER}:${DOCKER_GROUP} /mnt/${STORAGE_MOUNTPOINT}
+
 ##Install Docker for Ubuntu 18.10
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -58,7 +59,7 @@ docker run -d --name elk -v /${CACHE_MOUNTPOINT}/logstash:/opt/logstash -v /${CA
 docker run -d --name=emby -v /${CACHE_MOUNTPOINT}/emby:/config -v /${STORAGE_MOUNTPOINT}/Media:/mnt/media -p 8096:8096 -p 8920:8920 -e UID=1000 -e GID=999 -e ${LOCAL_TIMEZONE_CODE} -e GIDLIST=44 emby/embyserver:latest
 
 #Filebot Media File Manager
-docker run -d --name=filebot --restart=always -v /${CACHE_MOUNTPOINT}/filebot:/config -e USER_ID=${DOCKER_USER} -e GROUP_ID=${DOCKER_GROUP} -v /etc/localtime:/etc/localtime:ro -e ${LOCAL_TIMEZONE_CODE} -v /${STORAGE_MOUNTPOINT}/${FILE_PATH}:/storage:rw -p 5800:5800 jlesage/filebot
+docker run -d --name=filebot --restart=always -v /${CACHE_MOUNTPOINT}/filebot:/config -e USER_ID=${DOCKER_USER} -e GROUP_ID=${DOCKER_GROUP} -v /etc/localtime:/etc/localtime:ro -e ${LOCAL_TIMEZONE_CODE} -v /${STORAGE_MOUNTPOINT}/media:/storage:rw -p 5800:5800 jlesage/filebot
 
 #Home Assistant Home Automation Integrator
 ####This assumes use of an Aeotec Gen 5 USB Z-Wave Stick
