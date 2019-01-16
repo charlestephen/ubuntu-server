@@ -1,7 +1,9 @@
 ##File system##
 ###############
+
 #create zpool cache drive with two drives in mirrored mode
 sudo zpool create -f Cache mirror -m /${CACHE_MOUNTPOINT}  ${DISK}  ${DISK}
+
 #create zpool storage drive in raidz2 mode for snapshotting, etc
 sudo zpool create -f Storage raidz2 -m /${STORAGE_MOUNTPOINT}  ${DISK}  ${DISK} ${DISK}  ${DISK}  ${DISK}
 ##.....add as many disks as you have connected
