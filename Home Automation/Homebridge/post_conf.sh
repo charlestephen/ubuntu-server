@@ -1,0 +1,1 @@
+docker exec -it homebridge yarn add homebridge-mi-air-purifier miio homebridge-xiaomi-roborock-vacuum homebridge-automation-presence homebridge-mi-humidifier homebridge-plex-sensors homebridge-calendar openweathermap homebridge-unifi-occupancy-sensor homebridge-server
