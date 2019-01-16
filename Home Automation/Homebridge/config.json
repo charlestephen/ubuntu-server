@@ -11,6 +11,8 @@
 
 	"description": "This is an example configuration file. You can use this as a template for creating your own configuration file containing devices you actually own.",
 
+##follow these instructions: https://www.home-assistant.io/components/vacuum.xiaomi_miio
+##
 	"accessories": [{
 			"accessory": "${XIOAMI_DEVICE}",
 			"name": "${XIOAMI_DEVICE_NAME}",
